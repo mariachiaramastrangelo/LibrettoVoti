@@ -22,5 +22,21 @@ public class Libretto {
 		//con questa soluzione sono a posto e posso interagire anzi devo con le classi sapendo il meno possibile delle classi
 		voti.add(v); //per ordine di inserimento, aggiunge nuovo voto al libretto
 	}
+	//questo è il modo migliore per cercare voti in un libretto perché questa classe non si deve occupare di formattazione
+	//ma solo di gestire i dati
 	
+	/**
+	 * Seleziona un sottoinsieme di voti che hanno il puntegio specificato
+	 * @param punti da ricercare
+	 * @return lista di {@link Voto} aventi quel punteggio
+	 */
+	public List<Voto> CercaVoti(int punti){
+		List<Voto> result= new ArrayList<Voto>();
+		for(Voto v: this.voti) {
+			if(v.getPunti()==punti) {
+				result.add(v);
+			}
+		}
+		return result;
+	}
 }
