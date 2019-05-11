@@ -29,6 +29,11 @@ public class TestLibretto {
 		// test della funzione di ricerca del voto
 		List<Voto> venticinque= libr.CercaVoti(25);
 		System.out.println(venticinque);
+		
+		Voto a1= libr.cercaEsame("Analisi I");
+		Voto a2=libr.cercaEsame("Analisi III");
+		System.out.println(a1);
+		System.out.println(a2);
 
 	}
 	
