@@ -40,11 +40,39 @@ public class Libretto {
 		return result;
 	}
 	public Voto cercaEsame(String nomeEsame) {
-		for(Voto v: this.voti) {
-			if(v.getCorso().equals(nomeEsame)) {
-				return v;
-			}
-		}
-		return null;
+		//indexOf vuole un oggetto dello stesso tipo degli elementi della lista
+		//per usare indexOf posso usare un trucco ovvero creo un oggetto parzialmente costruito
+		//e quindi glielo passo come parametro perché tanto il metodo equals è consultato 
+		//dal metodo indexOf --> uso interfacce di più alto livello 
+		Voto voto= new Voto(0, nomeEsame, null);
+		int pos= voti.indexOf(voto);
+		if(pos==-1)
+			return null;
+		else
+			return voti.get(pos);
+	}
+	/**
+	 * Dato un {@link Voto} determina se esiste già un voto con uguale corso ed uguale punteggio
+	 * 
+	 * @param v
+	 * @return {@code true} se ha trovato un corso e punteggio uguali
+	 * 		{@code false} se non ha trovato il corso o se l'ha trovato con voto diverso
+	 */
+	public boolean esisteGiaVoto(Voto v) {
+//		Voto trovato= this.cercaEsame(v.getCorso());
+//			if(trovato==null) {
+//				return false;
+//			}
+//			if(trovato.getPunti()==v.getPunti()) {
+//				return true;
+//			}else {
+//				return false;
+//			}
+		
+		int pos= this.voti.indexOf(v);
+		if(pos==-1)
+			return false;
+		else 
+			return (v.getPunti()==voti.get(pos).getPunti());
 	}
 }

@@ -34,8 +34,14 @@ public class TestLibretto {
 		Voto a2=libr.cercaEsame("Analisi III");
 		System.out.println(a1);
 		System.out.println(a2);
-
+		
+		Voto giusto= new Voto(22, "Geometria", LocalDate.of(2019, 3, 13));
+		Voto sbagliato= new Voto(29, "Geometria", LocalDate.of(2019, 3, 13));
+		
+		System.out.format("il voto %s è %s \n", giusto.toString(), libr.esisteGiaVoto(giusto));
+		System.out.format("il voto %s è %s", sbagliato.toString(), libr.esisteGiaVoto(sbagliato));
 	}
+	
 	
 
 }
