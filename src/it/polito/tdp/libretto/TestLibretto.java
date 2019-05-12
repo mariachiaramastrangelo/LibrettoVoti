@@ -37,9 +37,11 @@ public class TestLibretto {
 		
 		Voto giusto= new Voto(22, "Geometria", LocalDate.of(2019, 3, 13));
 		Voto sbagliato= new Voto(29, "Geometria", LocalDate.of(2019, 3, 13));
+		Voto mancante= new Voto(29, "Merendine", LocalDate.of(2019, 3, 13));
 		
-		System.out.format("il voto %s è %s \n", giusto.toString(), libr.esisteGiaVoto(giusto));
-		System.out.format("il voto %s è %s", sbagliato.toString(), libr.esisteGiaVoto(sbagliato));
+		System.out.println(libr.add(mancante));
+		System.out.println(libr.add(sbagliato));
+		System.out.println(libr.add(giusto));
 	}
 	
 	
