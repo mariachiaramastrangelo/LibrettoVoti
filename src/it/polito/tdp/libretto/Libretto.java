@@ -88,4 +88,46 @@ public class Libretto {
 		else 
 			return (v.getPunti()!=voti.get(pos).getPunti());
 	}
+
+	@Override
+	public String toString() {
+		return String.format("Libretto [voti=%s]", voti);
+	}
+	
+	// sbagliato perché 
+	public Libretto librettoMigliorato() {
+		Libretto libretto= new Libretto();
+		for(Voto v: this.voti) {
+			//ho preso lo stesso oggetto del libretto vecchio e l'ho messo come stesso oggetto nel libretto nuovo 
+			//però condividono gli stessi oggetti ma io non li voglio collegati 
+			//questo funzionerebbe se il voto non avesse nessun setter 
+			//quindi creo un nuovo voto "clonato" così non ho problemi ma è meglio chiedere a voto di clonarsi
+			//libretto.add(new Voto(v.getPunti(), v.getCorso(), v.getData()));
+			libretto.add(v.clone());
+			//metodi come clone si chiamano metodi di factoring perché creano oggetti
+		}
+		for(Voto v: libretto.voti) {
+			int punti= v.getPunti();
+			if(punti< 24)
+				punti = punti+1;
+			else if(punti<=28)
+				punti= punti+2;
+			
+			v.setPunti(punti);
+		}
+		return libretto;
+	}
+	//cancellare dal libretto voti minori di 24
+	//non posso cancellare elementi mentre itero la lista
+	public void cancelloVotiScarsi() {
+		List <Voto> cancellare= new ArrayList<Voto>();
+		for(Voto v: this.voti) {
+			if(v.getPunti()<24) {
+				cancellare.add(v);
+			}}
+			this.voti.removeAll(cancellare);
+	
+	}
+	
+	
 }

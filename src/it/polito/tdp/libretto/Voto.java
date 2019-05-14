@@ -35,6 +35,7 @@ public class Voto {
 	public String toString() {
 		return String.format("Voto [voto=%s, corso=%s, data=%s]", punti, corso, data);
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -59,5 +60,8 @@ public class Voto {
 		return true;
 	}
 	
-	
+	public Voto clone() {
+		//dato che string e data sono immutabili posso non fare deep cloning
+		return new Voto(this.punti, this.corso, this.data);
+	}
 }

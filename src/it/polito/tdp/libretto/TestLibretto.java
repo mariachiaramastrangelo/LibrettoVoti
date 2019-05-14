@@ -1,7 +1,7 @@
 package it.polito.tdp.libretto;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 
 /** questa classe serve a testare tutte le funzioni implementate
  * il suo vantaggio è che sono sicuro di non usare dati privati
@@ -42,6 +42,14 @@ public class TestLibretto {
 		System.out.println(libr.add(mancante));
 		System.out.println(libr.add(sbagliato));
 		System.out.println(libr.add(giusto));
+		
+		Libretto migliore= libr.librettoMigliorato();
+		System.out.println(libr.toString());
+		System.out.println(migliore.toString());
+		
+		migliore.cancelloVotiScarsi();
+		System.out.println(migliore.toString());
+		
 	}
 	
 	
